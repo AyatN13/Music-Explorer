@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Artist Details</title>
+</head>
+<body>
+  <h1>Artist: <%= artist.name %></h1>
+  <h2>Top Tracks</h2>
+  <ul>
+    <% artist.topTracks.forEach(track => { %>
+      <li><%= track %></li>
+    <% }) %>
+  </ul>
+  <h2>Albums</h2>
+  <ul>
+    <% artist.albums.forEach(album => { %>
+      <li><%= album %></li>
+    <% }) %>
+  </ul>
+  <form action="/favorites" method="POST">
+    <input type="hidden" name="artistName" value="<%= artist.name %>">
+    <input type="hidden" name="topTracks" value="<%= artist.topTracks.join(',') %>">
+    <input type="hidden" name="albums" value="<%= artist.albums.join(',') %>">
+    <button type="submit">Add to Favorites</button>
+  </form>
+</body>
+</html>

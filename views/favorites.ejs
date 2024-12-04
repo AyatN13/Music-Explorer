@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Favorites</title>
+</head>
+<body>
+  <h1>Your Favorite Artists</h1>
+  <ul>
+    <% favorites.forEach(artist => { %>
+      <li><%= artist.name %></li>
+    <% }) %>
+  </ul>
+  <a href="/">Back to Home</a>
+</body>
+</html>
