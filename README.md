@@ -1,9 +1,9 @@
 # Music Explorer 🎵
 
 # Contributors
--Ayat Noor
--Purva Chimurkar
--Sreya Kanchi
+- Ayat Noor
+- Purva Chimurkar
+- Sreya Kanchi
 
 ## App Description
 Music Explorer is a Node.js application that enables users to:
@@ -13,7 +13,7 @@ Music Explorer is a Node.js application that enables users to:
 
 This application is part of the CMSC335 Final Exam Project (Fall 2024).
 
-Video Demo Link: 
+Video Demo Link:  
 API used: 
 Contact Email: 
 
