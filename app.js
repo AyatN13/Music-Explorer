@@ -30,9 +30,14 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+})
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+  .catch(err => console.error('MongoDB connection error:', err));
+
 
 // MongoDB schema and model
 const artistSchema = new mongoose.Schema({
@@ -55,7 +60,7 @@ app.post('/search', async (req, res) => {
     const artist = artistData.body.artists.items[0];
 
     if (!artist) {
-      return res.send('Artist not found');
+      return res.status(404).send('<h1>Artist not found</h1><a href="/">Go Back</a>');
     }
 
     // Get top tracks
@@ -69,9 +74,20 @@ app.post('/search', async (req, res) => {
     res.render('artist', { artist: { name: artist.name, topTracks, albums } });
   } catch (error) {
     console.error('Error fetching artist data:', error);
-    res.send('Error fetching artist data.');
+    res.status(500).send('<h1>Internal Server Error</h1><a href="/">Go Back</a>');
   }
 });
+
+app.get('/favorites', async (req, res) => {
+  try {
+    const favorites = await Artist.find();
+    res.render('favorites', { favorites });
+  } catch (error) {
+    console.error('Error fetching favorite artists:', error);
+    res.status(500).send('<h1>Error fetching favorite artists</h1><a href="/">Go Back</a>');
+  }
+});
+
 
 app.post('/favorites', async (req, res) => {
   const { artistName, topTracks, albums } = req.body;
@@ -83,23 +99,20 @@ app.post('/favorites', async (req, res) => {
   });
 
   try {
+    // Check if artist already exists
+    const existingArtist = await Artist.findOne({ name: artistName });
+    if (existingArtist) {
+      return res.status(409).send('<h1>Artist already in favorites</h1><a href="/favorites">View Favorites</a>');
+    }
+
     await newArtist.save();
     res.redirect('/favorites');
   } catch (error) {
     console.error('Error saving favorite artist:', error);
-    res.send('Error saving favorite artist.');
+    res.status(500).send('<h1>Error saving favorite artist</h1><a href="/">Go Back</a>');
   }
 });
 
-app.get('/favorites', async (req, res) => {
-  try {
-    const favorites = await Artist.find();
-    res.render('favorites', { favorites });
-  } catch (error) {
-    console.error('Error fetching favorite artists:', error);
-    res.send('Error fetching favorite artists.');
-  }
-});
 
 // Start the server
 app.listen(process.env.PORT || 3000, () => {
