@@ -1,6 +1,6 @@
 # Music Explorer 🎵
 
-Submitted by:
+## Submitted by:
 - Sreya Kanchi (directory ID: skanchi)
 
 # Contributors
@@ -16,9 +16,9 @@ Music Explorer is a Node.js application that enables users to:
 
 This application is part of the CMSC335 Final Exam Project (Fall 2024).
 
-- Video Demo Link:  
-- API used: 
-- Contact Email: 
+- Youtube Demo Link: https://www.youtube.com/watch?v=oz-WDyRne6I
+- API used: Spotify for Developers API (https://developer.spotify.com/documentation/web-api/concepts/api-calls)
+- Contact Email: anoor13@terpmail.umd.edu
 
 ## Features
 - **Search Artists**: Quickly find your favorite artist using Spotify's powerful API.
