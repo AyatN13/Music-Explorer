@@ -4,7 +4,7 @@ Submitted by:
 - Sreya Kanchi (directory ID: skanchi)
 
 # Contributors
-- Ayat Noor (directory ID: )
+- Ayat Noor (directory ID: anoor13 )
 - Purva Chimurkar (directory ID: purvac)
 - Sreya Kanchi (directory ID: skanchi )
 
