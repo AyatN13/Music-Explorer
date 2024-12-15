@@ -16,7 +16,7 @@ Music Explorer is a Node.js application that enables users to:
 
 This application is part of the CMSC335 Final Exam Project (Fall 2024).
 
-- Youtube Demo Link: https://www.youtube.com/watch?v=oz-WDyRne6I
+- Youtube Demo Link: https://youtu.be/0Qa3eFsJE5U)
 - API used: Spotify for Developers API (https://developer.spotify.com/documentation/web-api/concepts/api-calls)
 - Contact Email: anoor13@terpmail.umd.edu
 
