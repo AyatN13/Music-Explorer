@@ -1,9 +1,12 @@
 # Music Explorer 🎵
 
+Submitted by:
+- Sreya Kanchi (directory ID: skanchi)
+
 # Contributors
 - Ayat Noor (directory ID: )
 - Purva Chimurkar (directory ID: purvac)
-- Sreya Kanchi (directory ID: )
+- Sreya Kanchi (directory ID: skanchi )
 
 ## App Description
 Music Explorer is a Node.js application that enables users to:
